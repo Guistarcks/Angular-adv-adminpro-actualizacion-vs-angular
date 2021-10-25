@@ -1,0 +1,22 @@
+<div class="input-group">
+    <span class="input-group-btn">
+    <button class="btn waves-effect waves-light btn-block btn-danger" 
+    (click)="cambiarValorb(-5)"
+    type="button">
+    <i class="fa fa-minus"></i>
+    </button></span>
+    <input type="number" 
+    class="form-control" 
+    placeholder="Progreso"
+    min="0"
+    max="100"
+    [ngClass]="{'is-invalid' : progresob > 100 || progresob < 0 }"
+    (ngModelChange)="onChangeb($event)"
+    [(ngModel)]="progresob">
+    <span class="input-group-btn">
+    <button class="btn waves-effect waves-light btn-block btn-primary "
+    (click)="cambiarValorb(5)"
+    type="button">
+    <i class="fa fa-plus"></i>
+    </button></span>
+</div>
