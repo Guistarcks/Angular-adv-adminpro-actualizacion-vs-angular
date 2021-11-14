@@ -13,7 +13,7 @@ export class DonaComponent {
   @Input() title: string = 'Sin titulo';
 
   @Input ('labels') doughnutChartLabels: Label[] = ['LabelA', 'LabelB', 'LabelC'];
-  @Input ('data') doughnutChartData: MultiDataSet = [[350, 450, 100],
+  @Input ('data')   doughnutChartData: MultiDataSet = [[350, 450, 100],
   
   ];
  
