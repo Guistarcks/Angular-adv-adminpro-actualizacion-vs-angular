@@ -2,8 +2,10 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+//TODO: Cambiar el url de los servicios en PROD
 export const environment = {
-  production: false
+  production:true ,
+  base_url:'http://localhost:3000/api'
 };
 
 /*
