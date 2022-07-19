@@ -10,10 +10,19 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 })
 export class SidebarComponent  {
   
-  menuItems: any[];
+  public menuItems: any[];
+  public imgUrl = '';
+  public nomB ='';
+  public corrE = ''; 
+ 
 
-  constructor( private menusidebarservice :MenusidebarService,  private usuarioService: UsuarioService) {
+  constructor( private menusidebarservice :MenusidebarService,
+               private usuarioService: UsuarioService) {
     this.menuItems = menusidebarservice.menu;
+    this.imgUrl = usuarioService.usuario.imagenUrl;
+    this.nomB = usuarioService.usuario.nombre;
+    this.corrE = usuarioService.usuario.email;
+    
     //console.log(this.menuItems);
    }
 logout(){

@@ -35,7 +35,7 @@ export class LoginComponent  {
      this.router.navigateByUrl('/');
 
      }, (err) => {
-          Swal.fire('Error', err.error.msg,'error');
+          Swal.fire('!! Es necesario introducir  los datos para efectuar el login !!', err.error.msg,'error');
         });
     //console.log( this.loginForm.value);
     //this.router.navigateByUrl('/');
