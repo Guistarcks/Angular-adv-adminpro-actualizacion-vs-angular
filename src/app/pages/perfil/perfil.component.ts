@@ -7,7 +7,7 @@ import { FileUploadsService } from 'src/app/services/file-uploads.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
 import { Usuario } from 'src/app/models/usuario.model';
-import { DomSanitizer } from '@angular/platform-browser';
+
 
 
 @Component({
@@ -80,7 +80,7 @@ export class PerfilComponent implements OnInit {
    
   }
 
-   subirImmagen(){
+  subirImmagen(){
    this.fileUploadsService.actualizarFoto( this.imagenSubir,'usuarios', this.usuario.uid )
                            .then( img =>{
                             this.usuario.img = img;
@@ -92,5 +92,5 @@ export class PerfilComponent implements OnInit {
                             Swal.fire('Oops..',`${err.error.msg}`,'error')
                            });
 
-   }
+  }
 }

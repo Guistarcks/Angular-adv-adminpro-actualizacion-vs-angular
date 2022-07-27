@@ -17,3 +17,33 @@
    
 }
 /*Clase image avatar Road*/
+
+/**GRIDSSS*/
+.w100{
+    width: 100px;
+}
+.avatar{
+    border-radius: 100%;
+    width: 50px;
+}
+/*Loading-Personalizado*/
+
+/*Combox tabla Roluser tabla usuarios registrados*/
+.w140{
+    width: 140px;
+}
+
+/*Stilos Modal Imagen*/
+.oculto{
+    display: none;
+}
+.fondo-modal-imagen{
+    background-color: rgba(0,0,0,0.4);
+    left: 0px;
+    height:100%;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    z-index: 99999;
+}
+

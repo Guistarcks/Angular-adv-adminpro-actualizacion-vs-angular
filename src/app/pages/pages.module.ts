@@ -16,6 +16,8 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { UsuariosComponent } from './mantenimientos/usuarios/usuarios.component';
+import { ModalImagenComponent } from '../components/modal-imagen/modal-imagen.component';
 
 
 
@@ -29,7 +31,9 @@ import { PerfilComponent } from './perfil/perfil.component';
     AccountSettingsComponent,
     PromesasComponent,
     RxjsComponent,
-    PerfilComponent
+    PerfilComponent,
+    UsuariosComponent,
+    
   ],
   imports: [
     FormsModule,
@@ -38,14 +42,16 @@ import { PerfilComponent } from './perfil/perfil.component';
     CommonModule,
     SharedModule,
     RouterModule,
-    ComponentsModule,  
+    ComponentsModule,
+    
   ],
   exports:[
     DashboardComponent,
     ProgressComponent,
     Grafica1Component,
     PagesComponent, 
-    AccountSettingsComponent
+    AccountSettingsComponent,
+    
   ]
 })
 export class PagesModule { }
