@@ -1,0 +1,110 @@
+<div class="row animated fadeIn fast">
+    
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+               <input type="text"
+                      class="form-control"
+                      placeholder="Buscar clinica.."
+                      #txtTermino
+                      (keydown)="buscarclinica( txtTermino.value )"/>
+            </div>
+        </div>    </div>
+    
+  </div>
+  <div class="row animated fadeIn fast"
+  *ngIf="cargando">
+      <div class="col-12">
+     <div class="alert alert-info text-center">
+      <h4 class="alert-heading">Cargando.....</h4>
+       <i class=" fa fa-spin fa-circle-o-notch fa-3x"></i>
+        
+      <p class="mb-0">Por favor espere</p>
+     </div>  
+      </div>
+    </div>
+    <div class="row animated fadeIn fast"
+     *ngIf="!cargando">
+         <div class="col-12">
+        <div class="card">
+       
+         <div class="card-body">
+            <div class="row">
+
+                <div class="col-8">
+                <h4 class="card-title">Total de Clinicas ( {{ clinicas.length }} ) </h4>
+                <h6 class="card-subtitle">Clinicas registradas</h6>
+                </div>
+                
+                <div class="col">
+                    <div class=" text-right">
+                        <button class="cursor btn btn-primary"
+                        (click)="abrirSweetAlertcrearClinica()"
+                        ><i class=" fa fa-hospital-o"></i>
+                            crear clinica    
+                        </button>
+                       </div>   
+                </div>
+                
+            </div>
+               
+                  
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr >
+                                <th class="w100">Foto</th>
+                                <th>Nombre</th>
+                                <th class="text-nowrap w100">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let clinica of clinicas" >
+                               
+                                <td class="text-center">
+                                    
+                                  <img [src]=" clinica.img | imagen: 'clinicas'" 
+                                       [alt]="clinica.nombre" 
+                                (click)="abrirModal( clinica )"   class="avatar cursor  rounded-circle z-depth-2">
+                                </td>
+                                <td>  
+                                <input type="text" 
+                                class="form-control"
+                                 placeholder="Nombre clinica"
+                                 [(ngModel)]="clinica.nombre" /></td>
+                                                                                      
+                                
+                            
+                                <td class="text-nowrap ">
+                                    <a (click)="guardarCambios(clinica)"
+                                     data-toggle="tooltip" class="cursor " 
+                                     data-original-title="Guardar">
+                                   <i class="fa fa-pencil-square-o text-sucess fa-lg   px-2"></i>
+                                   </a>
+                                   
+                                    <a (click)="eliminarClinica(clinica)"
+                                    data-toggle="tooltip" class="cursor" 
+                                    data-original-title="Borrar">
+                                   <i class="fa fa-trash-o text-danger fa-lg"></i>
+                                   </a>
+                                
+                                  
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+              <div *ngIf="txtTermino.value.length === 0">
+                  <button  class="btn btn-secondary">Anterior</button>
+                  &nbsp;
+                  <button  class="btn btn-secondary">Siguiente</button>
+
+              </div>
+                
+            </div>
+        </div>
+    </div>
+    
+   
+

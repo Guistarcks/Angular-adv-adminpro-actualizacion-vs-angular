@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { Clinica } from '../models/clinicas.model';
+import { Doctor } from '../models/doctores.model';
 import { Usuario } from '../models/usuario.model';
 
 
@@ -20,7 +22,7 @@ export class BusquedasService {
     return localStorage.getItem('token') || '';
   }
 
-    // Devuelve un objeto Headers
+  // Devuelve un objeto Headers
   get headers() {
       return{
        headers:{
@@ -29,31 +31,86 @@ export class BusquedasService {
       }
      }
 
-
 private transformaUsuarios ( resultados : any [] ) :Usuario[] {
 
   return resultados.map(
-    user => new Usuario(user.nombre, user.email, '', user.role, user.google, user.img, user.uid));
+   user => new Usuario(user.nombre, user.email, '', user.role, user.google, user.img, user.uid));
+  }  
+
+private transformaClinicas ( resultados : any [] ) :Clinica[] {
+return resultados;
+}
+
+private transformaDoctores ( resultados : any [] ) :Doctor[] {
+  return resultados;
   
+  }
 
-}  
 
- buscar( tipo: 'usuarios'|'clinicas'|'doctores',
-        termino:string){
+
+ buscar(tipo: 'usuarios'|'clinicas'|'doctores',termino:string){
 
   const url =`${ base_url }/todo/coleccion/${ tipo }/${ termino }`;
-  return this.http.get<any[]>( url, this.headers)
+
+   return this.http.get<any[]>( url, this.headers)
                    .pipe(
                     map( ( resp : any ) => {
+
                       switch ( tipo ) {
+
                         case 'usuarios':
-                          return this.transformaUsuarios ( resp.resultados )
+                          return this.transformaUsuarios( resp.resultados )
                         
-                      
+                        
+
                         default:
                           return[];
                       }
                     })
                    );
-  }   
+  }
+
+ buscarclinica(tipo: 'clinicas',termino:string){
+
+    const url =`${ base_url }/todo/coleccion/${ tipo }/${ termino }`;
+  
+     return this.http.get<any[]>( url, this.headers)
+                     .pipe(
+                      map( ( resp : any ) => {
+  
+                        switch ( tipo ) {
+  
+                          case 'clinicas':
+                            return this.transformaClinicas( resp.resultados )
+                          
+                        
+  
+                          default:
+                            return[];
+                        }
+                      })
+                     );
+    }
+
+ buscarDoctor(tipo: 'doctores', termino:string){
+
+      const url =`${ base_url }/todo/coleccion/${ tipo }/${ termino }`;
+    
+       return this.http.get<any[]>( url, this.headers)
+                       .pipe(
+                        map( ( resp : any ) => {
+    
+                          switch ( tipo ) {
+    
+                            case 'doctores':
+                              return this.transformaDoctores( resp.resultados )
+                            
+                          
+    
+                            default:
+                              return[];
+                          }
+                        })
+                       );
+      }
 }

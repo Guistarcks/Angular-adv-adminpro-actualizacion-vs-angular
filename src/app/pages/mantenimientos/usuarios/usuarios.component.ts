@@ -39,11 +39,8 @@ import Swal from 'sweetalert2';
    this.cargarUsuarios();
    // Llamamos el servicio y realizamos un subscribe para actualizar la info
    this.imgSubs = this.modalImagenService.nuevaImagen
-    .pipe(
-      delay( 200 )
-    )
+    .pipe(delay( 200 ))
      .subscribe( img => {
-     
      this.cargarUsuarios() 
      });
   }
@@ -71,21 +68,6 @@ import Swal from 'sweetalert2';
         this.cargando = false;
    
        })
-   }
-
-   buscar( termino: string ) {
-    // El caso de no localizar el usuario volvemos a cargar 
-    if( termino.length === 0 ){
-    
-     return  ;  
-    }
-
-    this.busquedaService.buscar('usuarios', termino )
-                         .subscribe( resp =>{
-
-                          this.usuarios = resp;
-
-                         } );
    }
 
    eliminarUser( usuario: Usuario){
@@ -124,8 +106,7 @@ import Swal from 'sweetalert2';
     this.usuarioSevices.guardarUsuario( usuario )
         .subscribe(resp => {
             Swal.fire({
-           
-            icon: 'success',
+           icon: 'success',
             title: 'Role modificado con exíto',
             showConfirmButton: false,
             timer: 1500
@@ -138,5 +119,19 @@ import Swal from 'sweetalert2';
 
    this.modalImagenService.abrirModal ('usuarios' , usuario.uid, usuario.img );
 
+   }
+
+   buscar( termino: string ) {
+    // El caso de no localizar el usuario volvemos a cargar 
+    if( termino.length === 0 ){
+    
+     return this.cargarUsuarios();  
+    }
+
+    this.busquedaService.buscar('usuarios', termino )
+                        .subscribe( ( resp) =>{
+                        this.usuarios = resp;
+
+                         } );
    }
 }

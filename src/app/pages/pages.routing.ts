@@ -15,6 +15,9 @@ import { PerfilComponent } from './perfil/perfil.component';
 
 //Mantenimientos
 import { UsuariosComponent } from './mantenimientos/usuarios/usuarios.component';
+import { ClinicasComponent } from './mantenimientos/clinicas/clinicas.component';
+import { DoctoresComponent } from './mantenimientos/doctores/doctores.component';
+import { DoctorComponent } from './mantenimientos/doctores/doctor.component';
 const routes: Routes = [
 //<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 //<!-- * * * * * * * * * * * Rutas hijas* * * * * * * * * * * * *  * -->
@@ -29,9 +32,11 @@ children:[
   {path: 'promesas',  component:PromesasComponent , data:{ titulo : 'Promesas'} },
   {path: 'rxjs',  component:RxjsComponent , data:{ titulo : 'Rxjs'} },
   {path: 'perfil',  component:PerfilComponent , data:{ titulo : 'Perfil de usuario'} },
-  {path: 'usuarios',  component:UsuariosComponent , data:{ titulo : 'Usuario de aplicación'} },
-
-
+   //MANTENIMIENTOS 
+  {path: 'usuarios',  component:UsuariosComponent , data:{ titulo : 'Gestión usuarios '} },
+  {path: 'clinicas',  component:ClinicasComponent , data:{ titulo : 'Gestión clinicas'} },
+  {path: 'doctores',  component:DoctoresComponent , data:{ titulo : 'Gestión doctores'} },
+  {path: 'doctor/:id', component:DoctorComponent , data:{ titulo : 'Gestión doctores'} },
 
 ]
 }, 

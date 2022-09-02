@@ -13,7 +13,7 @@ export class ModalImagenService {
          
   public id? :string  ;          
   public img? :string ;
-  public tipo!: 'usuarios'|'doctores'| 'clinicas' ;
+  public tipo!: 'usuarios'|'clinicas'| 'doctores' ;
 
   // EventeEmitter se encarga de actualizar la image en el listado de usuario
   // nuevaImagen es un observable
@@ -26,7 +26,7 @@ export class ModalImagenService {
   
   abrirModal ( 
     
-  tipo: 'usuarios'|'doctores'| 'clinicas',  
+  tipo: 'usuarios'|'clinicas'| 'doctores',  
   id?:string ,
   img:string ='no-img' ){
    

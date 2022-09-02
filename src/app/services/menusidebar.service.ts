@@ -24,9 +24,9 @@ export class MenusidebarService {
     iconos: 'mdi mdi-folder-lock-open',
     submenu:[
       { titulo: 'Usuarios', url:'usuarios' },
-      { titulo: 'Clinicas', url:'Clinicas' },
-      { titulo: 'Doctores', url:'Doctores' },
-      
+      { titulo: 'Clinicas', url:'clinicas' },
+      { titulo: 'Doctores', url:'doctores' },
+     
     ]
 
    }

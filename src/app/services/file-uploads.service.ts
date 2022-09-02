@@ -13,7 +13,7 @@ constructor() { }
 
 async actualizarFoto(
 archivo: File,
-tipo: 'usuarios'|'doctores'| 'clinicas',
+tipo: 'usuarios'|'clinicas'|'doctores',
 id?: string
 
 ){
