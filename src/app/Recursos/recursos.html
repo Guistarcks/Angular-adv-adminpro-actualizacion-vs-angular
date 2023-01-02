@@ -1,0 +1,31 @@
+
+/*Calendario citas*/
+
+<div class="col-lg-4">
+    <div class="card">
+        <div class="card-header bg-theme">
+            <p class="m-b-0 text-white"></p>
+             </div>
+             <div class="card-body">
+                <div class="wrapper-calendar">
+                    <div class="header-calendar">
+                        <div class="classdiv">
+                            <button (click)="changeMonth(-1)" class=" btn btn-rounded btn-themecolor waves-effect waves-light">Antes</button>
+                        </div>
+                        <h1 class="text-center">{{dateSelect | date:'MMMM, yyyy'}}</h1>
+                        <div class="classdiv ">
+                            <button (click)="changeMonth(1)" class=" btn btn-rounded btn-themecolor waves-effect waves-light">Siguiente</button>
+                        </div>
+                    </div>
+                    <ol class="clasol">
+                        <li class="day-name" *ngFor="let day of week" >{{day | slice:0:3}}</li> 
+                
+                        <li class="clasli"   (click)="clickDay(day)" [style.gridColumnStart]="first ? day?.indexWeek : 'auto'"
+                         *ngFor="let day of monthSelect;let first = first">
+                            <span><strong>{{day?.value}}</strong></span>
+                        </li>
+                    </ol>
+                </div>
+             </div>
+    </div>
+</div> 

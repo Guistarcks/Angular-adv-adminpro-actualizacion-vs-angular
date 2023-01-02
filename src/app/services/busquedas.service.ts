@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { Cliente } from '../models/clientes.model';
 import { Clinica } from '../models/clinicas.model';
 import { Doctor } from '../models/doctores.model';
 import { Usuario } from '../models/usuario.model';
@@ -45,6 +46,10 @@ private transformaDoctores ( resultados : any [] ) :Doctor[] {
   return resultados;
   
   }
+private transformaClientes ( resultados : any [] ) :Cliente[] {
+    return resultados;
+    
+    }
 
 
 
@@ -113,4 +118,27 @@ private transformaDoctores ( resultados : any [] ) :Doctor[] {
                         })
                        );
       }
+
+ buscarCliente(tipo: 'clientes', termino:string){
+
+        const url =`${ base_url }/todo/coleccion/${ tipo }/${ termino }`;
+      
+         return this.http.get<any[]>( url, this.headers)
+                         .pipe(
+                          map( ( resp : any ) => {
+      
+                            switch ( tipo ) {
+      
+                              case 'clientes':
+                                return this.transformaClientes( resp.resultados )
+                              
+                            
+      
+                              default:
+                                return[];
+                            }
+                          })
+                         );
+        }
+  
 }

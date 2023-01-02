@@ -7,7 +7,8 @@ import { IncrementadorComponent } from './incrementador/incrementador.component'
 import { IncrementadorBComponent } from './incrementador-b/incrementador-b.component';
 import {FormsModule} from '@angular/forms';
 import { DonaComponent } from './dona/dona.component';
-import { ModalImagenComponent } from './modal-imagen/modal-imagen.component'
+import { ModalImagenComponent } from './modal-imagen/modal-imagen.component';
+import { ModalActualizarclientesComponent } from './modal-actualizarclientes/modal-actualizarclientes.component'
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ModalImagenComponent } from './modal-imagen/modal-imagen.component'
     IncrementadorComponent,
     IncrementadorBComponent,
     DonaComponent,
-    ModalImagenComponent
+    ModalImagenComponent,
+    ModalActualizarclientesComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +28,8 @@ import { ModalImagenComponent } from './modal-imagen/modal-imagen.component'
     IncrementadorComponent,
     IncrementadorBComponent,
     DonaComponent,
-    ModalImagenComponent
+    ModalImagenComponent,
+    ModalActualizarclientesComponent
       
   ]
 })

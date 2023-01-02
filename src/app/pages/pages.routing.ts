@@ -18,6 +18,9 @@ import { UsuariosComponent } from './mantenimientos/usuarios/usuarios.component'
 import { ClinicasComponent } from './mantenimientos/clinicas/clinicas.component';
 import { DoctoresComponent } from './mantenimientos/doctores/doctores.component';
 import { DoctorComponent } from './mantenimientos/doctores/doctor.component';
+//Principal
+import { ClientesComponent } from './clientesmantenimientos/clientes/clientes.component';
+import { CitasComponent } from './clientesmantenimientos/citas/citas.component';
 const routes: Routes = [
 //<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 //<!-- * * * * * * * * * * * Rutas hijas* * * * * * * * * * * * *  * -->
@@ -26,12 +29,14 @@ component:PagesComponent,
 canActivate: [AuthGuard],
 children:[
   {path: '', component:DashboardComponent, data:{ titulo : 'Dashboard'} },
-  {path: 'progress',  component:ProgressComponent, data:{ titulo : 'ProgressBar'}   },
-  {path: 'grafica1',  component:Grafica1Component , data:{ titulo : 'Graficas'} },
-  {path: 'account-settings',  component:AccountSettingsComponent, data:{ titulo : 'Ajuste-cuesta'} },
-  {path: 'promesas',  component:PromesasComponent , data:{ titulo : 'Promesas'} },
-  {path: 'rxjs',  component:RxjsComponent , data:{ titulo : 'Rxjs'} },
-  {path: 'perfil',  component:PerfilComponent , data:{ titulo : 'Perfil de usuario'} },
+  //{path: 'progress',  component:ProgressComponent, data:{ titulo : 'ProgressBar'}   },
+  {path: 'citas',  component:CitasComponent, data:{ titulo : 'Gestión citas'}},
+  {path: 'clientes',  component:ClientesComponent, data:{ titulo : 'Gestión pacientes'}},
+ // {path: 'grafica1',  component:Grafica1Component , data:{ titulo : 'Graficas'} },
+ {path: 'account-settings',  component:AccountSettingsComponent, data:{ titulo : 'Ajuste-cuesta'} },
+ // {path: 'promesas',  component:PromesasComponent , data:{ titulo : 'Promesas'} },
+ // {path: 'rxjs',  component:RxjsComponent , data:{ titulo : 'Rxjs'} },
+ {path: 'perfil',  component:PerfilComponent , data:{ titulo : 'Perfil de usuario'} },
    //MANTENIMIENTOS 
   {path: 'usuarios',  component:UsuariosComponent , data:{ titulo : 'Gestión usuarios '} },
   {path: 'clinicas',  component:ClinicasComponent , data:{ titulo : 'Gestión clinicas'} },

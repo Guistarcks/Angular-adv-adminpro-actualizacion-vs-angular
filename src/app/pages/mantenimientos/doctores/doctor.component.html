@@ -2,9 +2,12 @@
 <div class=" row animated fadeIn fast">
     <div class="col-md-6">
         <div class="card">
+            <div class="card-header bg-theme">
+                <h6 class="m-b-0 text-white">Actualizar y crear doctores</h6>
+            </div>
             <div class="card-body">
-                <h4 class="card-title">Doctor</h4>
-                <h6 class="card-subtitle">Actualizar información</h6>
+               
+                <h6 class="card-subtitle">Información</h6>
                 <form class="form-horizontal p-t-20"
                     [formGroup]="doctorForm"
                     (submit)="guardarDoctor()">
@@ -37,7 +40,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="exampleInputEmail3" class="col-sm-3 control-label">Hospitales</label>
+                        <label for="exampleInputEmail3" class="col-sm-3 control-label">Clinicas</label>
                         <div class="col-sm-9">
                             <div class="input-group">
                                 <select class="form-control" 
@@ -59,7 +62,7 @@
                           
                             <button type="submit" 
                             [disabled] = "doctorForm.invalid"
-                            class="btn btn-success waves-effect waves-light">
+                            class="btn btn-themecolor waves-effect waves-light">
                             <i class="fa  fa-floppy-o text-sucess fa-lg   px-2">
                             </i>Guardar</button>
                         </div>
@@ -70,8 +73,11 @@
     </div>
     <div class="col-md-6  animated fadeIn fast" *ngIf="clinicaSeleccionada">
      <div class="card">
+        <div class="card-header bg-theme">
+            <h6 class="m-b-0 text-white">Información clinica </h6>
+        </div>
         <div class="card-body">
-            <h4 class="card-title">Clinica</h4>
+
             <h6 class="card-subtitle">{{ clinicaSeleccionada.nombre }}</h6>
 
             <img [src]="clinicaSeleccionada.img | imagen:'clinicas' " 

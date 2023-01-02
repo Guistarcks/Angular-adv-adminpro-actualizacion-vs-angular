@@ -153,5 +153,21 @@ export class DoctoresComponent implements OnInit {
   
                            } );
      }
+ 
+      //Busqueda clinicas:
+     buscarDoctorSelector( e:any ) {
+      console.log(e);
+      // El caso de no localizar el usuario volvemos a cargar 
+      if( e.length === 0 ){
+      
+       return this.cargarDoctores(); 
+      }
+  
+      this.busquedaservice.buscarDoctor('doctores', e )
+                           .subscribe( resp =>{
+                            this.doctores = resp;
+  
+                           } );
+     }
 } 
 

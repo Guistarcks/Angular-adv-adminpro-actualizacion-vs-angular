@@ -1,0 +1,285 @@
+
+   
+<div class="row animated fadeIn fast">
+    
+<div class="col-lg-8">
+    <div class="card">
+        <div class="card-header bg-theme">
+            <p class="m-b-0 text-white"></p>
+             </div>   
+      <div class="card-body">
+                        <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item "> <a class="nav-link active" 
+                    data-toggle="tab" href="#newCliente" role="tab" 
+                    aria-expanded="true"><span  ><i class=" ti-plus "></i> añadir paciente</span></a> </li>
+
+                <li class="nav-item "> <a class="nav-link " data-toggle="tab" href="#updateCliente"
+                  role="tab" aria-expanded="false"><span ><i class="ti-pencil-alt"></i> Actualizar paciente </span></a> </li>
+                
+            </ul>
+            
+            <div class="tab-content tabcontent-border">
+                <div class="tab-pane  p-20 active animated fadeIn fast" id="newCliente" role="tabpanel" aria-expanded="true">
+                <form class="form-horizontal p-t-20"
+                              [formGroup]="clienteForm"
+                              (submit)="crearCliente()">
+             
+                                 <div class="form-group row">
+                                     <label for="exampleInputuname3" class="col-sm-3 control-label">Nombre</label>
+                                     <div class="col-sm-9">
+                                         <div class="input-group">
+                                             <div class="input-group-addon"><i class="ti-user"></i></div>
+                                             <input type="text"
+                                             formControlName="nombre" 
+                                              class="form-control"
+                                              id="clienteFormNombre"
+                                              placeholder="Nombre completo">
+                                         </div>
+                                     </div>
+                                 </div>
+                                 <div class="form-group row">
+                                     <label for="exampleInputEmail3" class="col-sm-3 control-label">Email</label>
+                                     <div class="col-sm-9">
+                                         <div class="input-group">
+                                             <div class="input-group-addon"><i class="ti-email"></i></div>
+                                             <input type="email"
+                                             formControlName="email"
+                                             class="form-control" 
+                                             id="clienteFormEmail" placeholder="Email ">
+                                         </div>
+                                     </div>
+                                 </div>
+                                 <div class="form-group row">
+                                     <label for="web" class="col-sm-3 control-label">Teléfono</label>
+                                     <div class="col-sm-9">
+                                         <div class="input-group">
+                                             <div class="input-group-addon"><i class="icon-call-end"></i></div>
+                                             <input type="text"
+                                             formControlName="telefono" 
+                                              class="form-control"
+                                             id="clienteFormtelefono"  placeholder=" Número de Teléfono ">
+                                         </div>
+                                     </div>
+                                 </div>
+                                 <div class="form-group row">
+                                     <label for="web" class="col-sm-3 control-label">Clinica</label>
+                                     <div class="col-sm-9">
+                                         <div class="input-group">
+                                             <div class="input-group-addon"><i class="ti-support"></i></div>
+                                             <select class="form-control" id="clienteFormClinica"  
+                                             formControlName="clinica">
+                                             <option value="">Seleccione la clinica</option>
+                                             <option *ngFor="let clinica of clinicas" 
+                                              [value]="clinica._id">
+                                               {{clinica.nombre}}
+                                             </option>
+                                         </select>
+                                         </div>
+                                     </div>
+                                 </div>
+                                 
+                                                
+                                 <div class="form-group row m-b-0">
+                                     <div class="offset-sm-3 col-sm-9">
+                                        
+                                         <button type="submit"
+                                         [disabled]="clienteForm.invalid"
+                                          class="btn btn-rounded btn-themecolor 
+                                           waves-effect waves-light">
+                                           Guardar</button>
+                                         
+                                     </div>
+                                 </div>
+                </form>   
+                </div>
+
+                <div class="tab-pane p-20 animated fadeIn fast" id="updateCliente" role="tabpanel" aria-expanded="false">
+                <form class="form-horizontal p-t-20"
+                [formGroup]="clienteupForm"
+                (submit)="actualizarCliente()">
+                      
+                <div class="form-group row">
+                    <label for="exampleInputuname3" class="col-sm-3 control-label">Nº </label>
+                    <div class="col-sm-9">
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="ti-bookmark"></i></div>
+                            <input type="text" [attr.disabled]="true || null"
+                            formControlName="_id" [(ngModel)]="Formcontacto._id"
+                             class="form-control"
+                             id="formcontactoId"
+                             placeholder="Nº del paciente">
+                        </div>
+                    </div>
+                </div>
+                   <div class="form-group row">
+                       <label for="exampleInputuname3" class="col-sm-3 control-label">Nombre</label>
+                       <div class="col-sm-9">
+                           <div class="input-group">
+                               <div class="input-group-addon"><i class="ti-user"></i></div>
+                               <input type="text"
+                               formControlName="nombre" [(ngModel)]="Formcontacto.nombre"
+                                class="form-control"
+                                id="formcontactoNombre"
+                                placeholder="Nombre completo ">
+                           </div>
+                       </div>
+                   </div>
+                   <div class="form-group row">
+                       <label for="exampleInputEmail3" class="col-sm-3 control-label">Email</label>
+                       <div class="col-sm-9">
+                           <div class="input-group">
+                               <div class="input-group-addon"><i class="ti-email"></i></div>
+                               <input type="email"
+                               formControlName="email" [(ngModel)]="Formcontacto.email"
+                               class="form-control" 
+                               id="exampleInputEmail3" placeholder="Email cliente">
+                           </div>
+                       </div>
+                   </div>
+                   <div class="form-group row">
+                       <label for="web" class="col-sm-3 control-label">Teléfono</label>
+                       <div class="col-sm-9">
+                           <div class="input-group">
+                               <div class="input-group-addon"><i class="icon-call-end"></i></div>
+                               <input type="text" 
+                               formControlName="telefono" [(ngModel)]="Formcontacto.telefono"
+                                class="form-control"
+                               id="formcontactoTelefono" placeholder=" Número de Teléfono ">
+                           </div>
+                       </div>
+                   </div>
+                   <div class="form-group row">
+                       <label for="web" class="col-sm-3 control-label">Clinica</label>
+                       <div class="col-sm-9">
+                           <div class="input-group">
+                               <div class="input-group-addon"><i class="ti-support"></i></div>
+                               <select class="form-control"  id="formcontactoClinica"
+                               formControlName="clinica">
+                               <option value="">Seleccione la clinica</option>
+                               <option *ngFor="let clinica of clinicas" 
+                                [value]="clinica._id">
+                                 {{clinica.nombre}}
+                               </option>
+                           </select>
+                           </div>
+                       </div>
+                   </div>
+                   
+                                  
+                   <div class="form-group row m-b-0">
+                       <div class="offset-sm-3 col-sm-9">
+                          
+                           <button type="submit"
+                           [disabled]="clienteupForm.invalid"
+                            class="btn btn-rounded btn-themecolor 
+                             waves-effect waves-light  ">
+                             Actualizar </button>          
+                       </div>
+                   </div>
+               </form>
+             
+            </div>
+        </div>
+     </div>
+    </div>
+</div>  
+    
+<div class="col-lg-4 animated fadeIn fast">
+    <div class="box bg-theme text-center m-b-10">
+        <h1 class="font-light text-white">{{hora | date:'hh:mm:ss a'}}</h1>
+        <h6 class="text-white">{{fecha | date }}</h6>
+    </div>
+    <div class="card  ">
+        <div class="card-header bg-theme"></div>
+        <div class="card-body">
+         <h1 class="text-center"><i class="fa fa-group px-2"></i>TOTAL</h1>
+         <p class="text-center">pacientes registrados</p>
+         <div class="mx-auto">
+         <h3 class="text-center percent-totalclientes text-themecolor"> {{ clientes.length }}</h3>
+        
+        </div>            
+    </div>
+    </div>
+
+        <div class="card">
+            <div class="card-header bg-theme m-b-3 ">
+                <h6 class="m-b-0 text-white">........  </h6>
+            </div>
+            <div class="input-group ">
+                <div class="input-group-addon"><i class="ti-search"></i></div>
+                <input type="text" id="clienteBusqueda" 
+                class="form-control"
+                placeholder="Busque por nombre, apellidos "
+                (keyup)="buscarCliente( txtTermino.value)"
+                #txtTermino/>
+            </div>
+         
+
+        </div>
+    </div>
+    
+</div>
+<div class="load-bar animated fadeIn fast m-b-5"
+   *ngIf="cargando">
+       <div class="bar"></div>
+       <div class="bar"></div>
+       <div class="bar"></div>
+      
+        </div> 
+<div class="row animated fadeIn fast"
+*ngIf="!cargando">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header bg-theme">
+                <h6 class="m-b-0 text-white"></h6>
+                 </div>
+            <div class="card-body">
+                 <h6 class="card-subtitle"><strong>Modificar datos del paciente </strong>  </h6>
+                <div class="table-responsive">
+                    <table class="table table-bordered ">
+                        <thead>
+                            <tr >
+                                <th >NOMBRE Y APELLIDO</th>
+                                <th>EMAIL</th>
+                                <th class="w140" >TELÉFONO</th>
+                                <th >CLINICA</th>
+                                <th class="w100" >ACCIONES</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let cliente of clientes" >
+                                <td>{{cliente.nombre}}</td>
+                                <td>{{cliente.email}}</td>
+                                <td>{{cliente.telefono}}</td>
+                                <td>{{cliente.clinica.nombre}}</td>
+                                                         
+                            
+                                <td class="text-nowrap text-center">
+                                    <a (click)="seleccionarCliente( cliente._id )"
+                                    data-toggle="tooltip" class="cursor " 
+                                    data-original-title="Guardar" id="btnActualizarCli">
+                                  <i class="fa fa-pencil-square-o text-sucess fa-lg   px-2"></i>
+                                  </a>
+                                   
+                                    <a (click)="eliminarCliente( cliente )" data-toggle="tooltip" class="cursor" 
+                                    data-original-title="Borrar" id="btnEliminarCli" >
+                                  <i  class="fa fa-trash-o text-danger fa-lg"></i>
+                                  </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+              <div>
+                  <button  id="btnAnterior"  class="btn btn-rounded btn-themecolor">Anterior</button>
+                  &nbsp;
+                  <button  id="btnSiguiente"  class="btn btn-rounded btn-themecolor">Siguiente</button>
+
+              </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

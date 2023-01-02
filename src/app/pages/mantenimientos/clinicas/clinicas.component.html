@@ -3,31 +3,33 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="ti-search"></i></div>
                <input type="text"
                       class="form-control"
                       placeholder="Buscar clinica.."
                       #txtTermino
                       (keydown)="buscarclinica( txtTermino.value )"/>
             </div>
-        </div>    </div>
-    
-  </div>
-  <div class="row animated fadeIn fast"
-  *ngIf="cargando">
-      <div class="col-12">
-     <div class="alert alert-info text-center">
-      <h4 class="alert-heading">Cargando.....</h4>
-       <i class=" fa fa-spin fa-circle-o-notch fa-3x"></i>
-        
-      <p class="mb-0">Por favor espere</p>
-     </div>  
-      </div>
-    </div>
+            </div>
+            <div class="load-bar  animated fadeIn fast"
+            *ngIf="cargando">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+               
+              </div> 
+        </div>    
+          </div>
+</div>
+
     <div class="row animated fadeIn fast"
      *ngIf="!cargando">
          <div class="col-12">
         <div class="card">
-       
+            <div class="card-header bg-theme">
+                <h6 class="m-b-0 text-white">Información clinicas </h6>
+            </div>
          <div class="card-body">
             <div class="row">
 
@@ -38,7 +40,7 @@
                 
                 <div class="col">
                     <div class=" text-right">
-                        <button class="cursor btn btn-primary"
+                        <button class="cursor btn btn-themecolor"
                         (click)="abrirSweetAlertcrearClinica()"
                         ><i class=" fa fa-hospital-o"></i>
                             crear clinica    
@@ -96,15 +98,15 @@
                 </div>
 
               <div *ngIf="txtTermino.value.length === 0">
-                  <button  class="btn btn-secondary">Anterior</button>
+                  <button  class="btn btn-themecolor">Anterior</button>
                   &nbsp;
-                  <button  class="btn btn-secondary">Siguiente</button>
+                  <button  class="btn btn-themecolor">Siguiente</button>
 
               </div>
                 
             </div>
         </div>
     </div>
-    
+ </div>  
    
 

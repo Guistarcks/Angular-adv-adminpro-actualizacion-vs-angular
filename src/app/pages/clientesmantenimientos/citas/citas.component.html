@@ -1,0 +1,101 @@
+
+
+<div class="row animated fadeIn fast">
+<div class="col-lg-4">
+    <div class="card">
+        <div class="card-header bg-theme">
+            <p class="m-b-0 text-white"></p>
+             </div> 
+       <div class="card-body">
+        
+        <form class="form p-t-20">
+            <div class="form-group">
+                <label for="exampleInputuname">Paciente</label>
+                <div class="input-group">   
+                    <select class="custom-select col-12" id="inlineFormCustomSelect">
+                        <option selected="">Seleccione el paciente ..</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Clinica</label>
+                <div class="input-group">
+                    <select class="custom-select col-12" id="inlineFormCustomSelect">
+                        <option selected="">Seleccione la Clinica..</option>
+                        <option *ngFor="let c of clinicas"
+                         [value]="c.nombre">{{c.nombre}}</option>
+                        
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Doctor</label>
+                <div class="input-group">
+                    <select class="custom-select col-12" id="inlineFormCustomSelect">
+                        <option selected="">Seleccione el Doctor...</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+            <div class="col-md-6">
+            <div class="form-group">
+                <label for="pwd1">Fecha</label>
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="ti-calendar"></i></div>
+                    <input class="form-control" type="date" value="{{getDaysFromDate}}" id="example-date-input">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="pwd2">Hora</label>
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="ti-timer"></i></div>
+                    <input class="form-control cursor" type="time" value="00:00:00" id="example-time-input"> 
+                </div>
+            </div>
+        </div>
+    </div>
+            <div class="form-group">
+                <label>Descripción Cita</label>
+                <textarea class="form-control" rows="4" maxlength="100"></textarea>
+            </div>
+            <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">Registrar Citas</button>
+            <button type="submit" class="btn btn-inverse waves-effect waves-light">Cancelar Citas</button>
+        </form>
+
+
+
+       </div>
+       </div>
+</div>
+  
+
+<div class="col-lg-8">
+<div class="card">
+    <div class="card-header bg-theme">
+        <p class="m-b-0 text-white"></p>
+         </div> 
+   <div class="card-body">
+    
+    
+    <hr>
+    <div class="classdiv">
+      
+    </div>
+
+
+               
+         </div> 
+        
+      </div>
+
+</div>
+</div>
+

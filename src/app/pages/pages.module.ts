@@ -22,6 +22,8 @@ import { ClinicasComponent } from './mantenimientos/clinicas/clinicas.component'
 import { DoctoresComponent } from './mantenimientos/doctores/doctores.component';
 import { PipeModule } from '../pipe/pipe.module';
 import { DoctorComponent } from './mantenimientos/doctores/doctor.component';
+import { ClientesComponent } from './clientesmantenimientos/clientes/clientes.component';
+import { CitasComponent } from './clientesmantenimientos/citas/citas.component';
 
 
 
@@ -41,6 +43,8 @@ import { DoctorComponent } from './mantenimientos/doctores/doctor.component';
     ClinicasComponent,
     DoctoresComponent,
     DoctorComponent,
+    ClientesComponent,
+    CitasComponent,
     
   ],
   imports: [
